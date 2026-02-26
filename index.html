@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="arquivo.css">
+<title>cauculadora</title>
+<style>
+body{
+text-align:center;
+}
+</style>
+</head>
+<body>
+<h1 >calculadora</h1>
+<input id='cont' type='text'disabled><br><br>
+<!-- numeros -->
+<input id='n1'onclick='adicionar(1)' type='button'value='1'>
+<input id='n1'onclick='adicionar(2)' type='button'value='2'>
+<input id='n1'onclick='adicionar(3)' type='button'value='3'><br>
+<input id='n1'onclick='adicionar(4)' type='button'value='4'>
+<input id='n1'onclick='adicionar(5)' type='button'value='5'>
+<input id='n1'onclick='adicionar(6)' type='button'value='6'><br>
+<input id='n1'onclick='adicionar(7)' type='button'value='7'>
+<input id='n1'onclick='adicionar(8)' type='button'value='8'>
+<input id='n1'onclick='adicionar(9)' type='button'value='9'><br>
+<input id='n1'onclick='adicionar(0)' type='button'value='0'><br>
+<!-- operadores -->
+<input id='r'onclick='r("+")' type='button'value='+'>
+<input id='r'onclick='r("-")' type='button'value='-'><br>
+<input id='r'onclick='r("*")' type='button'value='*'>
+<input id='r'onclick='r("/")' type='button'value='/'><br>
+<!-- finalizar -->
+<input id='f'onclick='concluir()' type='button'value='='><br>
+<!-- deletar -->
+<input id='c'onclick='limpar()' type='button'value='del'>
+
+<script>
+
+var contador=document.getElementById('cont')
+var botao=document.getElementById('n1')
+function adicionar(numero){
+contador.value+=numero
+}
+var op=''
+function r(operador){
+contador.value+=operador
+op=operador
+}
+function concluir(){
+var resul=0
+resul=eval(contador.value)
+contador.value=resul
+}
+function limpar(){
+contador.value=''
+}
+</script>
+</body>
+
+</html>
+
+
