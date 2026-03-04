@@ -7,32 +7,99 @@
 <style>
 body{
 text-align:center;
+background-color:gray;
+}
+h1{
+color:white;
+font-family:sans-serif;
+}
+div{
+display:inline-block;
+}
+div:hover{
+padding:2px;
+border:red solid 1px;
+background-color:green;
 }
 </style>
 </head>
 <body>
 <h1 >calculadora</h1>
 <input id='cont' type='text'disabled><br><br>
-<!-- numeros -->
-<input id='n1'onclick='adicionar(1)' type='button'value='1'>
-<input id='n1'onclick='adicionar(2)' type='button'value='2'>
-<input id='n1'onclick='adicionar(3)' type='button'value='3'><br>
-<input id='n1'onclick='adicionar(4)' type='button'value='4'>
-<input id='n1'onclick='adicionar(5)' type='button'value='5'>
-<input id='n1'onclick='adicionar(6)' type='button'value='6'><br>
-<input id='n1'onclick='adicionar(7)' type='button'value='7'>
-<input id='n1'onclick='adicionar(8)' type='button'value='8'>
-<input id='n1'onclick='adicionar(9)' type='button'value='9'><br>
-<input id='n1'onclick='adicionar(0)' type='button'value='0'><br>
 <!-- operadores -->
+<div>
 <input id='r'onclick='r("+")' type='button'value='+'>
-<input id='r'onclick='r("-")' type='button'value='-'><br>
+</div>
+
+<div>
+<input id='r'onclick='r("-")' type='button'value='-'>
+</div>
+
+<div>
 <input id='r'onclick='r("*")' type='button'value='*'>
-<input id='r'onclick='r("/")' type='button'value='/'><br>
+</div>
+
+<div>
+<input id='r'onclick='r("/")' type='button'value='/'>
+</div><br>
+
+<!-- numeros -->
+<div>
+<input id='n1'onclick='adicionar(1)' type='button'value='1'>
+</div>
+<div>
+<input id='n1'onclick='adicionar(2)' type='button'value='2'>
+</div>
+
+<div>
+<input id='n1'onclick='adicionar(3)' type='button'value='3'>
+</div>
+<div>
+<input id='n1'onclick='adicionar(4)' type='button'value='4'>
+</div>
+<br>
+<div>
+<input id='n1'onclick='adicionar(5)' type='button'value='5'>
+</div>
+
+<div>
+<input id='n1'onclick='adicionar(6)' type='button'value='6'>
+</div>
+
+<div>
+<input id='n1'onclick='adicionar(7)' type='button'value='7'>
+</div>
+
+<div>
+<input id='n1'onclick='adicionar(8)' type='button'value='8'>
+</div><br>
+
+<div>
+<input id='n1'onclick='adicionar(9)' type='button'value='9'>
+</div>
+
+<div>
+<input id='n1'onclick='adicionar(0)' type='button'value='0'>
+</div>
+
+<!-- extras -->
+<div>
+<input onclick='adicionar("(")' type='button'value='('>
+</div>
+
+<div>
+<input onclick='adicionar(")")' type='button'value=')'><br>
+</div><br>
+
 <!-- finalizar -->
-<input id='f'onclick='concluir()' type='button'value='='><br>
+<div>
+<input id='f'onclick='concluir()' type='button'value='='>
+</div>
 <!-- deletar -->
+<div>
 <input id='c'onclick='limpar()' type='button'value='del'>
+</div>
+
 
 <script>
 
