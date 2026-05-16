@@ -2,128 +2,120 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="arquivo.css">
-<title>cauculadora</title>
+<title>Calculadora</title>
 <style>
-body{
-text-align:center;
-background-color:gray;
+body {
+  margin: 0;
+  background-color: gray;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
-h1{
-color:white;
-font-family:sans-serif;
+
+/* Área do resultado */
+#resultado {
+  flex: 1; /* ocupa mais espaço */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  font-size: 3em; /* bem grande */
+  padding: 20px;
+  box-sizing: border-box;
 }
-div{
-display:inline-block;
+
+/* Área dos botões */
+#teclado {
+  flex: 1; /* ocupa metade da tela */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+  gap: 10px;
+  padding: 20px;
+  background-color: #444;
+  box-sizing: border-box;
 }
-div:hover{
-padding:2px;
-border:red solid 1px;
-background-color:green;
+
+#teclado input {
+  width: 100%;
+  height: 60px;
+  font-size: 1.5em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+#teclado input:hover {
+  background-color: green;
+  color: white;
 }
 </style>
 </head>
 <body>
-<h1 >calculadora</h1>
-<input id='cont' type='text'disabled><br><br>
-<!-- operadores -->
-<div>
-<input id='r'onclick='r("+")' type='button'value='+'>
+
+<!-- Resultado -->
+<div id="resultado">
+  <input id="cont" type="text" disabled style="width:100%; text-align:right; font-size:inherit; background:none; border:none; color:white;">
 </div>
 
-<div>
-<input id='r'onclick='r("-")' type='button'value='-'>
-</div>
+<!-- Teclado -->
+<div id="teclado">
+  <!-- Operadores -->
+  <input onclick='r("+")' type='button' value='+'>
+  <input onclick='r("-")' type='button' value='-'>
+  <input onclick='r("*")' type='button' value='*'>
+  <input onclick='r("/")' type='button' value='÷'>
 
-<div>
-<input id='r'onclick='r("*")' type='button'value='*'>
-</div>
+  <!-- Números -->
+  <input onclick='adicionar(7)' type='button' value='7'>
+  <input onclick='adicionar(8)' type='button' value='8'>
+  <input onclick='adicionar(9)' type='button' value='9'>
+  <input onclick='adicionar(3)' type='button' value='0'>
 
-<div>
-<input id='r'onclick='r("/")' type='button'value='/'>
-</div><br>
+  <input onclick='adicionar(4)' type='button' value='4'>
+  <input onclick='adicionar(5)' type='button' value='5'>
+  <input onclick='adicionar(6)' type='button' value='6'>
+  <input onclick='adicionar(3)' type='button' value=''>
+  
+  <input onclick='adicionar(1)' type='button' value='1'>
+  <input onclick='adicionar(2)' type='button' value='2'>
+  <input onclick='adicionar(3)' type='button' value='3'>
 
-<!-- numeros -->
-<div>
-<input id='n1'onclick='adicionar(1)' type='button'value='1'>
-</div>
-<div>
-<input id='n1'onclick='adicionar(2)' type='button'value='2'>
-</div>
+  
+  <input onclick='adicionar(0)' type='button' value=''>
+  <input onclick='concluir()' type='button' value='='>
+  <input onclick='limpar()' type='button' value='DEL'>
+  <input onclick='adicionar("(")' type='button' value='('>
+  <input onclick='adicionar(")")' type='button' value=')'>
 
-<div>
-<input id='n1'onclick='adicionar(3)' type='button'value='3'>
 </div>
-<div>
-<input id='n1'onclick='adicionar(4)' type='button'value='4'>
-</div>
-<br>
-<div>
-<input id='n1'onclick='adicionar(5)' type='button'value='5'>
-</div>
-
-<div>
-<input id='n1'onclick='adicionar(6)' type='button'value='6'>
-</div>
-
-<div>
-<input id='n1'onclick='adicionar(7)' type='button'value='7'>
-</div>
-
-<div>
-<input id='n1'onclick='adicionar(8)' type='button'value='8'>
-</div><br>
-
-<div>
-<input id='n1'onclick='adicionar(9)' type='button'value='9'>
-</div>
-
-<div>
-<input id='n1'onclick='adicionar(0)' type='button'value='0'>
-</div>
-
-<!-- extras -->
-<div>
-<input onclick='adicionar("(")' type='button'value='('>
-</div>
-
-<div>
-<input onclick='adicionar(")")' type='button'value=')'><br>
-</div><br>
-
-<!-- finalizar -->
-<div>
-<input id='f'onclick='concluir()' type='button'value='='>
-</div>
-<!-- deletar -->
-<div>
-<input id='c'onclick='limpar()' type='button'value='del'>
-</div>
-
 
 <script>
+var contador = document.getElementById('cont');
+var op = '';
 
-var contador=document.getElementById('cont')
-var botao=document.getElementById('n1')
-function adicionar(numero){
-contador.value+=numero
+function adicionar(numero) {
+  contador.value += numero;
 }
-var op=''
-function r(operador){
-contador.value+=operador
-op=operador
+
+function r(operador) {
+  contador.value += operador;
+  op = operador;
 }
-function concluir(){
-var resul=0
-resul=eval(contador.value)
-contador.value=resul
+
+function concluir() {
+  try {
+    var resul = eval(contador.value);
+    contador.value = resul;
+  } catch {
+    contador.value = "Erro";
+  }
 }
-function limpar(){
-contador.value=''
+
+function limpar() {
+  contador.value = '';
 }
 </script>
 </body>
-
 </html>
-
-
